@@ -39,6 +39,11 @@ def done(number):
     save(todos)
     print("Done:", todos[number - 1]["text"])
 
+def delete(number):
+    todos = load()
+    removed = todos.pop(number - 1)
+    save(todos)
+    print("Deleted:", removed["text"])
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -49,3 +54,5 @@ if __name__ == "__main__":
         list_todos()
     elif sys.argv[1] == "done":
         done(int(sys.argv[2]))
+    elif sys.argv[1] == "delete":
+        delete(int(sys.argv[2]))
