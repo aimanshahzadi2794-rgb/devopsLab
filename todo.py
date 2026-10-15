@@ -39,6 +39,9 @@ def done(number):
     save(todos)
     print("Done:", todos[number - 1]["text"])
 
+def clear():
+    save([])
+    print("Cleared all todos")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -49,3 +52,5 @@ if __name__ == "__main__":
         list_todos()
     elif sys.argv[1] == "done":
         done(int(sys.argv[2]))
+    elif sys.argv[1] == "clear":
+        clear()
